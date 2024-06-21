@@ -1,12 +1,10 @@
 import React from "react";
-import {Navbar} from "../conmponents";
+import {Layout} from "../conmponents";
 const Contact = () => {
   return (
-    <div>
-      <Navbar title="Contact" color="green"/>
+    <Layout title="Contact">
       <h1>Contact Page</h1>
-    
-    </div>
+    </Layout>
   );
 };
 export default Contact;

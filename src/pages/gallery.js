@@ -1,12 +1,10 @@
 import React from "react";
-import {Navbar} from "../conmponents";
+import { Layout } from "../conmponents";
 const Gallery = () => {
   return (
-    <div>
-      <Navbar title="Gallery" color="blue"/>
+    <Layout title="Gallery">
       <h1>Gallery Page</h1>
-    
-    </div>
+    </Layout>
   );
 };
 export default Gallery;
