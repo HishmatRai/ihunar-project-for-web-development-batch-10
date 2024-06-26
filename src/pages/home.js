@@ -3,7 +3,6 @@ import {  Card,  Layout } from "../conmponents";
 import "./home.css";
 import { FaFacebook } from "react-icons/fa";
 import { SiYoutubekids } from "react-icons/si";
-
 const Home = () => {
   const CardList = [
     {

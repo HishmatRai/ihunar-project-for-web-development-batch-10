@@ -10,6 +10,8 @@ const Navbar = (props) => {
         <button onClick={() => navigate("/about")}>About</button>
         <button onClick={() => navigate("/gallery")}>Gallery</button>
         <button onClick={() => navigate("/contact")}>Contact</button>
+        <button onClick={() => navigate("/function")}>Function</button>
+        <button onClick={() => navigate("/class")}>Class</button>
       </div>
       <h3 style={{color:props.color}}>{props.title}</h3>
     </div>

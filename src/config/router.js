@@ -1,6 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {Home,About,Gallery,PageNotFound,Contact} from './../pages'
+import {
+  Home,
+  About,
+  Gallery,
+  PageNotFound,
+  Contact,
+  FunctionComponent,
+  ClassComponent,
+} from "./../pages";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -9,7 +17,9 @@ const Router = () => {
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/*" element={<PageNotFound />}/>
+        <Route path="/function" element={<FunctionComponent />} />
+        <Route path="/class" element={<ClassComponent />} />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
