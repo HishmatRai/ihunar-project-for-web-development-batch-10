@@ -8,6 +8,7 @@ import {
   Contact,
   FunctionComponent,
   ClassComponent,
+  SignUp
 } from "./../pages";
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/function" element={<FunctionComponent />} />
         <Route path="/class" element={<ClassComponent />} />
+        <Route path="/sign-up" element={<SignUp />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>

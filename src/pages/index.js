@@ -5,6 +5,7 @@ import PageNotFound from "./page-not-found";
 import Contact from "./contact";
 import FunctionComponent from "./function-component";
 import ClassComponent from "./classs-component";
+import SignUp from "./sign-up";
 export {
   Home,
   About,
@@ -13,4 +14,5 @@ export {
   Contact,
   FunctionComponent,
   ClassComponent,
+  SignUp
 };

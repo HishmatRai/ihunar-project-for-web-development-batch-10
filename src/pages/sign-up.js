@@ -1,0 +1,58 @@
+import React, { useState } from "react";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import firebase from "../config/firebase";
+import { useNavigate } from "react-router-dom";
+const SignUp = () => {
+  const auth = getAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassowrd] = useState("");
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
+  const emailFormat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const signUpHandler = () => {
+      setMessageType("error");
+    if (email === "") {
+      setMessage("Email Required!");
+    }else if(!email.match(emailFormat)){
+        setMessage("Enter valid email address");
+    } else if (password === "") {
+      setMessage("Password Required!");
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          //   navigate("/");
+          setMessage("Success");
+          setMessageType("success");
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.log(errorMessage);
+        });
+    }
+  };
+  return (
+    <div>
+      <h1>Sign Up</h1>
+      <input
+        type="email"
+        placeholder="Email Address"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassowrd(e.target.value)}
+      />
+      <p style={{ color: messageType === "error" ? "red" : "green" }}>
+        {message}
+      </p>
+      <button onClick={signUpHandler}>Sign Up</button>
+    </div>
+  );
+};
+export default SignUp;
