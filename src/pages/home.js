@@ -1,9 +1,23 @@
-import React from "react";
-import {  Card,  Layout } from "../conmponents";
+import React ,{useEffect}from "react";
+import { Card, Layout } from "../conmponents";
 import "./home.css";
 import { FaFacebook } from "react-icons/fa";
 import { SiYoutubekids } from "react-icons/si";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 const Home = () => {
+  const auth = getAuth();
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        console.log("login true", user);
+      } else {
+        console.log("login false");
+      }
+    });
+  },[])
+
   const CardList = [
     {
       icon: "https://ihunar.com/static/software-development-fd2689b86be84f80acea358918d09549.png",
@@ -46,8 +60,8 @@ const Home = () => {
     <div>
       <Layout title="Home">
         <h1>Home Page</h1>
-        <FaFacebook size={250} color="red"/>
-        <SiYoutubekids size={500} color="green"/>
+        <FaFacebook size={250} color="red" />
+        <SiYoutubekids size={500} color="green" />
         <Card data={CardList} />
       </Layout>
     </div>
